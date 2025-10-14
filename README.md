@@ -36,7 +36,7 @@ This project helps predict which equipment might fail soon based on sensor data 
    - `encoders.joblib` - How to process new data
    - `label_encoder_target.joblib` - Maps predictions back to readable labels
 
-## Configuration (no command-line args)
+## Configuration 
 
 The training script uses fixed defaults. To change them, edit these constants at the top of `train_models.py`:
 
