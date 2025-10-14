@@ -9,22 +9,27 @@ This project helps predict which equipment might fail soon based on sensor data 
 ## Files
 
 - `plant_dataset.csv` - Your equipment data (sensor readings, maintenance dates, etc.)
-- `data_load_and_eda.py` - Explores the dataset and shows basic statistics
 - `preprocess_and_features.py` - Cleans and prepares the data for training
 - `train_models.py` - Trains a model to predict failures
-- `utils.py` - Helper functions for loading data and saving models
+- `utils.py` - Helper functions for loading data, saving models, and data exploration
 
 ## How to use
 
-1. **Prepare your data**
+1. **Explore your data** (optional)
+   ```bash
+   python utils.py
+   ```
+   This shows basic statistics and data exploration for the plant dataset.
+
+2. **Prepare your data**
    ```bash
    python preprocess_and_features.py
    ```
    This creates `processed_data.csv` with clean, numeric features.
 
-2. **Train the model**
+3. **Train the model**
    ```bash
-   python train_models.py --csv plant_dataset.csv
+   python train_models.py
    ```
    This creates:
    - `rf_model.joblib` - The trained model

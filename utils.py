@@ -1,10 +1,9 @@
-# utils.py
+
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 import joblib
 
 def load_csv(path):
-    """Try to load a CSV file with common encodings."""
     for enc in ["utf-8", "latin1"]:
         try:
             df = pd.read_csv(path, encoding=enc)
@@ -33,11 +32,21 @@ def label_encode_columns(df, columns):
     """Label encode the given columns."""
     encoders = {}
     for col in columns:
+        
         le = LabelEncoder()
         df[col] = le.fit_transform(df[col].astype(str))
         encoders[col] = le
     return df, encoders
 
-# Example usage:
-# df = load_csv("mydata.csv")
-# show_basic_info(df)
+# Data exploration functionality (merged from data_load_and_eda.py)
+def explore_plant_data(csv_path="plant_dataset.csv"):  
+    df = load_csv(csv_path)
+    show_basic_info(df)
+     # Show unique values in maintenance_priority column
+    if 'maintenance_priority' in df.columns:
+        print("Unique priorities:", df['maintenance_priority'].unique())
+        print("Priority counts:\n", df['maintenance_priority'].value_counts())
+    
+    return df
+if __name__ == "__main__":
+    explore_plant_data()
