@@ -36,6 +36,22 @@ This project helps predict which equipment might fail soon based on sensor data 
    - `encoders.joblib` - How to process new data
    - `label_encoder_target.joblib` - Maps predictions back to readable labels
 
+## Configuration (no command-line args)
+
+The training script uses fixed defaults. To change them, edit these constants at the top of `train_models.py`:
+
+```python
+CSV_PATH = "plant_dataset.csv"
+TARGET_COL = "is_failure_soon"
+FAILURE_THRESHOLD = 0.5
+MODEL_OUT = "rf_model.joblib"
+ENCODERS_OUT = "encoders.joblib"
+LABEL_OUT = "label_encoder_target.joblib"
+```
+
+- Change `CSV_PATH` to point to a different dataset file.
+- If your CSV doesn’t have `is_failure_soon`, it will be derived from `failure_probability >= FAILURE_THRESHOLD`.
+
 ## What the model predicts
 
 By default, it predicts `is_failure_soon`:
