@@ -1,86 +1,58 @@
-# Plant Maintenance ML Pipeline
+# Plant Maintenance Q&A System
 
-A simple machine learning pipeline to predict equipment failures in industrial plants.
+A simple system that answers questions about plant equipment data using natural language.
 
-## What it does
+## Quick Start
 
-This project helps predict which equipment might fail soon based on sensor data like vibration, temperature, pressure, and maintenance history.
+1. **Install dependencies:**
+   ```bash
+   pip install pandas fastapi uvicorn requests
+   ```
+
+2. **Start the server:**
+   ```bash
+   python plant_server.py
+   ```
+
+3. **Ask questions:**
+   ```bash
+   python ask_questions.py
+   ```
+
+## Example Questions
+
+- "How many pumps are there?"
+- "What is the average temperature?"
+- "Which machines are outdated?"
+- "Top 5 equipment with highest vibration level"
+- "Show me all motors"
+
+## How It Works
+
+1. **Question Parser** - understands your questions
+2. **Data Analyzer** - processes the plant data
+3. **Answer Formatter** - gives you clear answers
+
+## Features
+
+- Count equipment (pumps, motors, valves)
+- Calculate averages, maximums, minimums
+- Find outdated and high-risk equipment
+- Handle typos and different question formats
+- Fast responses with detailed information
 
 ## Files
 
-- `plant_dataset.csv` - Your equipment data (sensor readings, maintenance dates, etc.)
-- `preprocess_and_features.py` - Cleans and prepares the data for training
-- `train_models.py` - Trains a model to predict failures
-- `utils.py` - Helper functions for loading data, saving models, and data exploration
+- `plant_server.py` - Main server
+- `question_parser.py` - Question understanding
+- `data_analyzer.py` - Data processing
+- `answer_formatter.py` - Response formatting
+- `ask_questions.py` - Question interface
+- `plant_dataset.csv` - Your data
 
-## How to use
+## API
 
-1. **Explore your data** (optional)
-   ```bash
-   python utils.py
-   ```
-   This shows basic statistics and data exploration for the plant dataset.
+- **POST** `/ask` - Ask questions
+- **GET** `/health` - Check system status
 
-2. **Prepare your data**
-   ```bash
-   python preprocess_and_features.py
-   ```
-   This creates `processed_data.csv` with clean, numeric features.
-
-3. **Train the model**
-   ```bash
-   python train_models.py
-   ```
-   This creates:
-   - `rf_model.joblib` - The trained model
-   - `encoders.joblib` - How to process new data
-   - `label_encoder_target.joblib` - Maps predictions back to readable labels
-
-## Configuration 
-
-The training script uses fixed defaults. To change them, edit these constants at the top of `train_models.py`:
-
-```python
-CSV_PATH = "plant_dataset.csv"
-TARGET_COL = "is_failure_soon"
-FAILURE_THRESHOLD = 0.5
-MODEL_OUT = "rf_model.joblib"
-ENCODERS_OUT = "encoders.joblib"
-LABEL_OUT = "label_encoder_target.joblib"
-```
-
-- Change `CSV_PATH` to point to a different dataset file.
-- If your CSV doesn’t have `is_failure_soon`, it will be derived from `failure_probability >= FAILURE_THRESHOLD`.
-
-## What the model predicts
-
-By default, it predicts `is_failure_soon`:
-- **0** = Equipment is fine, no immediate failure risk
-- **1** = Equipment might fail soon, needs attention
-
-The model automatically creates this target from your `failure_probability` column.
-
-## Example results
-
-```
-Accuracy: 0.8636
-Class distribution: {'0': 52, '1': 54}
-
-              precision    recall  f1-score   support
-           0       0.83      0.91      0.87        11
-           1       0.90      0.82      0.86        11
-```
-
-## Requirements
-
-- Python 3.7+
-- pandas
-- scikit-learn
-- joblib
-
-## Notes
-
-- The model uses a simple RandomForest with 100 trees
-- Numeric columns (like temperature, pressure) keep their original values
-- Text columns are converted to numbers using smart encoding
-- The model prevents data leakage by excluding the target column from features
+That's it! Simple and effective plant maintenance data analysis.
