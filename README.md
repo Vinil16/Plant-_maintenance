@@ -53,6 +53,5 @@ A simple system that answers questions about plant equipment data using natural 
 ## API
 
 - **POST** `/ask` - Ask questions
-- **GET** `/health` - Check system status
 
 That's it! Simple and effective plant maintenance data analysis.
