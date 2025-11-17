@@ -1,0 +1,106 @@
+{
+  "target_name": "is_fail_soon",
+  "threshold": 0.71,
+  "scaler_mode": "standard",
+  "numeric_features": [
+    "runtime_hours",
+    "vibration_level",
+    "temperature",
+    "pressure",
+    "equipment_age_days",
+    "model_age_years",
+    "runtime_intensity",
+    "maintenance_frequency",
+    "temp_pressure_stress",
+    "temp_pressure_ratio",
+    "high_temperature_flag",
+    "high_pressure_flag",
+    "thermal_stress",
+    "temp_per_runtime",
+    "pressure_per_runtime"
+  ],
+  "categorical_features": [
+    "asset_type_Centrifugal Pump",
+    "asset_type_Control Valve",
+    "asset_type_Induction Motor",
+    "asset_type_Shell & Tube Exchanger",
+    "asset_type_Pressure Vessel",
+    "asset_type_Transformer",
+    "model_status_Active",
+    "model_status_Limited Support",
+    "model_status_Obsolete",
+    "asset_family_freq"
+  ],
+  "one_hot_domains": {
+    "asset_type": [
+      "Centrifugal Pump",
+      "Control Valve",
+      "Induction Motor",
+      "Shell & Tube Exchanger",
+      "Pressure Vessel",
+      "Transformer"
+    ],
+    "model_status": [
+      "Active",
+      "Limited Support",
+      "Obsolete"
+    ]
+  },
+  "scaling_stats": {
+    "mean": {
+      "vibration_level": 4.4603773584905655,
+      "temperature": 90.27358490566037,
+      "pressure": 7.147169811320756,
+      "runtime_hours": 4214.7169811320755,
+      "equipment_age_days": 3075.103773584906,
+      "days_since_last_maintenance": 362.3679245283019,
+      "days_until_next_maintenance": -179.97169811320754,
+      "model_age_years": 10.971698113207546,
+      "runtime_intensity": 1.4418497471858243,
+      "maintenance_frequency": 11.969639514477837,
+      "is_maintenance_overdue": 1.0,
+      "temp_pressure_stress": 702.7094339622643,
+      "temp_pressure_ratio": 13.723724011717808,
+      "high_temperature_flag": 0.4811320754716981,
+      "high_pressure_flag": 0.3490566037735849,
+      "thermal_stress": 0.8301886792452831,
+      "temp_per_runtime": 0.022259668686657026,
+      "pressure_per_runtime": 0.0018096433305233417,
+      "vib_temp_interaction": 388.3358490566038
+    },
+    "std": {
+      "vibration_level": 0.34632279775099845,
+      "temperature": 17.860324438129446,
+      "pressure": 1.136712202600761,
+      "runtime_hours": 852.9529257146763,
+      "equipment_age_days": 883.14765031104,
+      "days_since_last_maintenance": 86.39480739459415,
+      "days_until_next_maintenance": 86.1020081227888,
+      "model_age_years": 2.625914206195307,
+      "runtime_intensity": 0.3678610352026926,
+      "maintenance_frequency": 2.6768723300424306,
+      "is_maintenance_overdue": 1.0,
+      "temp_pressure_stress": 190.09279934766215,
+      "temp_pressure_ratio": 1.4383596332652244,
+      "high_temperature_flag": 0.4996438745986928,
+      "high_pressure_flag": 0.4766718904399917,
+      "thermal_stress": 0.9160178184104418,
+      "temp_per_runtime": 0.005679026217109093,
+      "pressure_per_runtime": 0.00012857247297421337,
+      "vib_temp_interaction": 45.79355270736397
+    },
+    "min": {},
+    "max": {}
+  },
+  "low_variance_features": [
+    "is_maintenance_overdue",
+    "installed_model_freq",
+    "latest_model_freq",
+    "location_freq"
+  ],
+  "high_corr_drop": [
+    "days_since_last_maintenance",
+    "days_until_next_maintenance",
+    "vib_temp_interaction"
+  ]
+}

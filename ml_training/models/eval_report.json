@@ -1,0 +1,25 @@
+{
+  "target_distribution": {
+    "0": 52,
+    "1": 54
+  },
+  "best_model": "extratrees",
+  "best_model_params": {
+    "max_depth": 5,
+    "max_features": "sqrt",
+    "min_samples_leaf": 2,
+    "min_samples_split": 5,
+    "n_estimators": 200
+  },
+  "val_metrics": {
+    "accuracy": 0.9259259259259259,
+    "precision": 0.875,
+    "recall": 1.0,
+    "f1": 0.9333333333333333,
+    "roc_auc": 0.9615384615384616
+  },
+  "files": {
+    "leaderboard_csv": "c:\\Plant Maintenance\\ml_training\\models\\model_leaderboard.csv",
+    "model_path": "c:\\Plant Maintenance\\ml_training\\models\\model.joblib"
+  }
+}
