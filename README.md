@@ -132,13 +132,3 @@ It refreshes `models/` and `artifacts.json`, which the predictor automatically p
 - **Training mismatch** → Re-run `train_plant_maintenance.py` so `artifacts.json` and `model.joblib` are aligned.
 
 ---
-
-## Why REST + Streamlit?
-
-- REST keeps the ML logic reusable for other teams/systems (dashboards, bots, etc.).
-- Streamlit offers a “human” front end for demos or quick analysis without writing code.
-- Both call the same pipeline, so behavior is consistent everywhere.
-
----
-
-Happy troubleshooting, and feel free to tailor the example questions or UI copy to match your plant’s tone.	
